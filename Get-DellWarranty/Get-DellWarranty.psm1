@@ -34,12 +34,12 @@
             $content = $response.Content | ConvertFrom-Json
 
             $WarrantyEndDateRaw = (($content.entitlements.endDate).split("T"))[-2]
-            $WarrantyEndDate = [datetime]::ParseExact($WarrantyEndDateRaw, "yyyy-MM-dd", $null)
+            $WarrantyEndDate = [datetime]::ParseExact($WarrantyEndDateRaw, "dd/MM/yyyy", $null)
             $WarrantyStartDateRaw = (($content.entitlements.startDate).split("T"))[-2]
-            $WarrantyStartDate = [datetime]::ParseExact($WarrantyStartDateRaw, "yyyy-MM-dd", $null)
+            $WarrantyStartDate = [datetime]::ParseExact($WarrantyStartDateRaw, "dd/MM/yyyy", $null)
             $WarrantyLevel = ($content.entitlements.serviceLevelDescription)[-1]
             $ShipDateRaw = (($content.shipDate).split("T"))[0]
-            $ShipDate = [datetime]::ParseExact($ShipDateRaw, "yyyy-MM-dd", $null)
+            $ShipDate = [datetime]::ParseExact($ShipDateRaw, "dd/MM/yyyy", $null)
             $Model = $content.systemDescription
 
             if ($full -eq $true){
