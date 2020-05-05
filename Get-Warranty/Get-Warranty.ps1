@@ -11,7 +11,7 @@ if ($brand -eq 'Dell Inc.')
 	$WarrantySupportLevel = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantySupportLevel
 	
 	$wshell = New-Object -ComObject Wscript.Shell
-	$wshell.Popup("$env:computername est sous garantie jusqu'au $WarrantyEndDate`n`nInformation :`nModel : $Model`nServiceTag : $ServiceTag`nWarranty Start Date : $WarrantyStartDate`nSupport Level : $WarrantySupportLevel",0,"Information",0x40)
+	$wshell.Popup("$env:computername est sous garantie jusqu'au $WarrantyEndDate`n`n[ Information ]`nModel : $Model`nServiceTag : $ServiceTag`nWarranty Start Date : $WarrantyStartDate`nSupport Level : $WarrantySupportLevel",0,"Information",0x40)
 	
     Exit
 }
