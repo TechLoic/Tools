@@ -8,7 +8,8 @@ if ($brand -eq 'Dell Inc.')
 	$ServiceTag = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty ServiceTag
 	$WarrantyStartDate = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantyStartDate
 	$WarrantyEndDate = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantyEndDate
-	$WarrantySupportLevel = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantySupportLevel
+    $WarrantySupportLevel = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantySupportLevel
+    $WarrantyExpired = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantyExpired
 	
 	Add-Type -AssemblyName PresentationCore,PresentationFramework
     $ButtonType = [System.Windows.MessageBoxButton]::Ok
