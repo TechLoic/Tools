@@ -47,11 +47,19 @@
                 
             if ($Show -eq $true){
                 $Today = get-date
-                if ($Today -ge $WarrantyEndDate){Write-Host "`nWarranty has expired for $ServiceTag ($Model) " -ForegroundColor White -BackgroundColor Red}
+                if ($Today -ge $WarrantyEndDate){
+                    Write-Host "`nWarranty has expired for $ServiceTag ($Model) " -ForegroundColor White -BackgroundColor Red
+                    $WarrantyExpired = "Yes"
+                }
+                
                     Write-Host "`nThe machine's warranty started:" -NoNewline
                     Write-Host "  $WarrantyStartDate" -ForegroundColor Cyan
                     Write-Host "The machine's warranty ends:" -NoNewline
-                    if ($Today -le $WarrantyEndDate){Write-Host "     $WarrantyEndDate" -ForegroundColor Cyan} else {Write-Host "     $WarrantyEndDate " -ForegroundColor Red}
+                    if ($Today -le $WarrantyEndDate){
+                        Write-Host "     $WarrantyEndDate" -ForegroundColor Cyan
+                        $WarrantyExpired = "No"
+                    } 
+                    else {Write-Host "     $WarrantyEndDate " -ForegroundColor Red}
                     Write-Host "The current support level is:" -NoNewline
                     Write-Host "    $WarrantyLevel`n" -ForegroundColor Cyan
                     if ($Full -eq $true){
@@ -78,6 +86,7 @@
                     New-ItemProperty -Path $registryPath -Name 'Model' -Value $Model -PropertyType ExpandString -Force | Out-Null
                     New-ItemProperty -Path $registryPath -Name 'OriginalShipDate' -Value $ShipDate -PropertyType ExpandString -Force | Out-Null
                     New-ItemProperty -Path $registryPath -Name 'ServiceTag' -Value $ServiceTag -PropertyType ExpandString -Force | Out-Null
+                    New-ItemProperty -Path $registryPath -Name 'WarrantyExpired' -Value $WarrantyExpired -PropertyType ExpandString -Force | Out-Null
                 }
             }
         }
