@@ -10,6 +10,7 @@ if ($brand -eq 'Dell Inc.')
 	$WarrantyEndDate = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantyEndDate
     $WarrantySupportLevel = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantySupportLevel
     $WarrantyExpired = Get-ItemProperty -Path HKLM:\SOFTWARE\DELL\WARRANTY | Select-Object -ExpandProperty WarrantyExpired
+    $Today = Get-Date -Format "dd/MM/yyyy"
     
 	Add-Type -AssemblyName PresentationCore,PresentationFramework
     $ButtonType = [System.Windows.MessageBoxButton]::Ok
