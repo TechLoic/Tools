@@ -13,7 +13,7 @@ if ($brand -eq 'Dell Inc.')
 	Add-Type -AssemblyName PresentationCore,PresentationFramework
     $ButtonType = [System.Windows.MessageBoxButton]::Ok
     $MessageIcon = [System.Windows.MessageBoxImage]::Information
-    $MessageBody = "$env:computername est sous garantie jusqu'au $WarrantyEndDate`n`n[ Details ]`nModel : $Model`nServiceTag : $ServiceTag`nWarranty Start Date : $WarrantyStartDate`nSupport Level : $WarrantySupportLevel"
+    $MessageBody = "$env:computername est sous garantie jusqu'au $WarrantyEndDate`n`n[ Details ]`nModel : $Model`nServiceTag : $ServiceTag`nWarranty Expired : $WarrantyExpired`nWarranty Start Date : $WarrantyStartDate`nSupport Level : $WarrantySupportLevel"
     $MessageTitle = "Information"
     $Result = [System.Windows.MessageBox]::Show($MessageBody,$MessageTitle,$ButtonType,$MessageIcon)
 }
