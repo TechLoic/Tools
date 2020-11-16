@@ -1,0 +1,4 @@
+netsh advfirewall firewall add rule name="PDQ TCP IN" protocol=TCP dir=in localport=445 action=allow
+netsh advfirewall firewall add rule name="PDQ TCP OUT" protocol=TCP dir=out localport=445 action=allow
+netsh advfirewall firewall add rule name="PDQ UDP IN" protocol=UDP dir=in localport=445 action=allow
+netsh advfirewall firewall add rule name="PDQ UDP OUT" protocol=UDP dir=out localport=445 action=allow
